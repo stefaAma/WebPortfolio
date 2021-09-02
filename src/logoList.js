@@ -4,7 +4,7 @@ import html from './images/html.svg'
 import java from './images/java.svg'
 import javascript from './images/javascript.svg'
 import mysql from './images/mysql.svg'
-import python from './images/.python.svg'
+import python from './images/python.svg'
 import react from './images/react.svg'
 import uml from './images/uml.svg'
 
