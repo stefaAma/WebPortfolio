@@ -9,22 +9,40 @@ import react from './images/react.svg'
 import uml from './images/uml.svg'
 
 export const logoList = [
-    {src: uml,
-     alt: "UML Logo"},
-    {src: java,
-     alt: "Java Logo"},
-    {src: mysql,
-     alt: "MySql Logo"},
-    {src: html,
-     alt: "HTML Logo"},
-    {src: css,
-     alt: "CSS Logo"},
-    {src: javascript,
-     alt: "JavaScript Logo"},
-    {src: c,
-     alt: "C Logo"},
-    {src: python,
-     alt: "Python Logo"},
-    {src: react,
-     alt: "React Logo"}
+    {
+        src: uml,
+        alt: "UML Logo"
+    },
+    {
+        src: java,
+        alt: "Java Logo"
+    },
+    {
+        src: mysql,
+        alt: "MySql Logo"
+    },
+    {
+        src: c,
+        alt: "C Logo"
+    },
+    {
+        src: html,
+        alt: "HTML Logo"
+    },
+    {
+        src: css,
+        alt: "CSS Logo"
+    },
+    {
+        src: javascript,
+        alt: "JavaScript Logo"
+    },
+    {
+        src: react,
+        alt: "React Logo"
+    },
+    {
+        src: python,
+        alt: "Python Logo"
+    }
 ];

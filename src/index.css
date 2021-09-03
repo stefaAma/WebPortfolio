@@ -40,7 +40,7 @@ code {
 
 .quote-wrapper {
   background-color: blueviolet;
-  margin-top: 10vh;
+  margin-top: 5vh;
   padding-left: 2em;
   padding-right: 2em;
   display: flex;
@@ -51,10 +51,55 @@ code {
   text-align: center;
 }
 
-.quote-left {
+/*.quote-left {
 
-}
+}*/
 
 .quote-right {
   align-self: flex-end;
+}
+
+.logo-wrapper {
+  height: 25vh;
+  background-color: brown;
+  padding-left: 20%;
+  padding-right: 20%;
+  position: relative;
+  overflow: hidden;
+}
+
+.prev-element, .next-element {
+  opacity: 0;
+}
+
+.prev-element {
+  transform: translateX(-30em);
+}
+
+.next-element {
+  transform: translateX(30em);
+}
+
+.first-element, .second-element, .third-element, .fourth-element, .prev-element, .next-element {
+  height: 15vh;
+  position: absolute;
+  top: 25%;
+  left: 45%;
+  transition: all 0.5s;
+}
+
+.first-element {
+  transform: translateX(-20em);
+}
+
+.second-element {
+  transform: translateX(-5em);
+}
+
+.third-element {
+  transform: translateX(5em);
+}
+
+.fourth-element {
+  transform: translateX(20em);
 }
