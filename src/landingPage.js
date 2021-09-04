@@ -1,18 +1,22 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa'
 // import { LoremIpsum } from 'react-lorem-ipsum'
 import { logoList } from './logoList';
+import codingVideo from './video/coding_video.mp4'
 
 const LOGO_NUM = logoList.length - 1; 
-const LOGO_OFFSET = 3;
+const LOGO_OFFSET = 2;
 
 const LandingPage = () => {
     return (
-        <>
+        <div className = "landingPage">
             <Title/>
             <Quote/>
             <SkillSet/>
-        </>
+            <video className = "background-video" autoPlay loop muted>
+                <source src = {codingVideo} type = "video/mp4" />
+            </video>
+        </div>
     );
 }
 
@@ -42,6 +46,22 @@ const Quote = () => {
 const SkillSet = () => {
     const [bookmark, setBookmark] = useState(0);
 
+    useEffect(() => {
+        let id = setInterval(() => {
+            setBookmark((prevBookmark) => {
+                let newBookmark = prevBookmark + LOGO_OFFSET + 1;
+                if (newBookmark > LOGO_NUM)
+                    newBookmark = newBookmark - (LOGO_NUM + 1);
+
+                //console.log(newBookmark);
+
+                return newBookmark;
+            });
+        }, 4000);
+
+        return () => clearInterval(id);
+    });
+
     function find_bookmarks() {
         let bookmarks = {
             prevStart: -1,
@@ -49,16 +69,15 @@ const SkillSet = () => {
             displayedElements: []
         };
 
-        /*if (bookmark + LOGO_OFFSET <= LOGO_NUM) 
-            bookmarks.bookmarkEnd = bookmark + LOGO_OFFSET;
-        else 
-            bookmarks.bookmarkEnd = ((bookmark + LOGO_OFFSET) - LOGO_NUM) - 1; */
-
         if (bookmark - LOGO_OFFSET > 0) 
             bookmarks.prevStart = (bookmark - LOGO_OFFSET) - 1;
         else 
             bookmarks.prevStart = LOGO_NUM + (bookmark - LOGO_OFFSET);
-        bookmarks.prevEnd = bookmark - 1;
+        
+        if (bookmark > 0)
+            bookmarks.prevEnd = bookmark - 1;
+        else
+            bookmarks.prevEnd = LOGO_NUM;
 
         let counter = bookmark;
 
@@ -88,12 +107,10 @@ const SkillSet = () => {
                             className = "second-element";
                         else if (index === bookmarks.displayedElements[2])
                             className = "third-element";
-                        else if (index === bookmarks.displayedElements[3])
-                            className = "fourth-element";
 
                         if (bookmarks.prevStart < bookmarks.prevEnd && (index >= bookmarks.prevStart && index <= bookmarks.prevEnd)) 
                             className = "prev-element";
-                        else if (index >= bookmarks.prevStart || index <= bookmarks.prevEnd)
+                        else if (bookmarks.prevStart > bookmarks.prevEnd && (index >= bookmarks.prevStart || index <= bookmarks.prevEnd))
                             className = "prev-element";
 
                         return (

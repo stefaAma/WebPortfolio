@@ -4,9 +4,10 @@ import html from './images/html.svg'
 import java from './images/java.svg'
 import javascript from './images/javascript.svg'
 import mysql from './images/mysql.svg'
-import python from './images/python.svg'
+import python from './images/python2.svg'
 import react from './images/react.svg'
 import uml from './images/uml.svg'
+import stackoverflow from './images/stackoverflow.svg'
 
 export const logoList = [
     {
@@ -22,10 +23,6 @@ export const logoList = [
         alt: "MySql Logo"
     },
     {
-        src: c,
-        alt: "C Logo"
-    },
-    {
         src: html,
         alt: "HTML Logo"
     },
@@ -38,11 +35,19 @@ export const logoList = [
         alt: "JavaScript Logo"
     },
     {
+        src: c,
+        alt: "C Logo"
+    },
+    {
         src: react,
         alt: "React Logo"
     },
     {
         src: python,
         alt: "Python Logo"
+    },
+    {
+        src: stackoverflow,
+        alt: "Stackoverflow Logo"
     }
 ];
