@@ -32,12 +32,14 @@ const Title = () => {
 const Quote = () => {
     return (
         <div className = "quote-wrapper">
-            <div className = "quote-left">
-                <FaQuoteLeft/>
-            </div>
-            <p className = "quote-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <div className = "quote-right">
-                <FaQuoteRight/>
+            <div className = "quote-body">
+                <div className = "quote-left">
+                    <FaQuoteLeft/>
+                </div>
+                <p className = "quote-text">I don't know everything, but I can put a step after another and go even further beyond.</p>
+                <div className = "quote-right">
+                    <FaQuoteRight/>
+                </div>
             </div>
         </div>
     );
@@ -94,31 +96,28 @@ const SkillSet = () => {
     let bookmarks = find_bookmarks();
 
     return (
-        <div className = "skills-wrapper">
-            <h3 className = "skill-title"> ~ Skills ~ </h3>
-            <div className = "logo-wrapper">
-                {
-                    logoList.map((item, index) => {
-                        let className = "next-element";
-                        
-                        if (index === bookmarks.displayedElements[0]) 
-                            className = "first-element";
-                        else if (index === bookmarks.displayedElements[1])
-                            className = "second-element";
-                        else if (index === bookmarks.displayedElements[2])
-                            className = "third-element";
+        <div className = "logo-wrapper">
+            {
+                logoList.map((item, index) => {
+                    let className = "next-element";
+                    
+                    if (index === bookmarks.displayedElements[0]) 
+                        className = "first-element";
+                    else if (index === bookmarks.displayedElements[1])
+                        className = "second-element";
+                    else if (index === bookmarks.displayedElements[2])
+                        className = "third-element";
 
-                        if (bookmarks.prevStart < bookmarks.prevEnd && (index >= bookmarks.prevStart && index <= bookmarks.prevEnd)) 
-                            className = "prev-element";
-                        else if (bookmarks.prevStart > bookmarks.prevEnd && (index >= bookmarks.prevStart || index <= bookmarks.prevEnd))
-                            className = "prev-element";
+                    if (bookmarks.prevStart < bookmarks.prevEnd && (index >= bookmarks.prevStart && index <= bookmarks.prevEnd)) 
+                        className = "prev-element";
+                    else if (bookmarks.prevStart > bookmarks.prevEnd && (index >= bookmarks.prevStart || index <= bookmarks.prevEnd))
+                        className = "prev-element";
 
-                        return (
-                            <Logo className = {className} src = {item.src} alt = {item.alt} key = {index}/>
-                        );
-                    })
-                }
-            </div>
+                    return (
+                        <Logo className = {className} src = {item.src} alt = {item.alt} key = {index}/>
+                    );
+                })
+            }
         </div>
     );
 }
