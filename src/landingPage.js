@@ -13,9 +13,11 @@ const LandingPage = () => {
             <Title/>
             <Quote/>
             <SkillSet/>
-            <video className = "background-video" autoPlay loop muted>
-                <source src = {codingVideo} type = "video/mp4" />
-            </video>
+            <div className = "video-wrapper">
+                <video className = "background-video" autoPlay loop muted>
+                    <source src = {codingVideo} type = "video/mp4" />
+                </video>
+            </div>
         </div>
     );
 }
