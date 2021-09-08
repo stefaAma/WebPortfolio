@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa'
-// import { LoremIpsum } from 'react-lorem-ipsum'
 import { logoList } from './logoList';
 import codingVideo from './video/coding_video.mp4'
+import Modal from './modal';
 
 const LOGO_NUM = logoList.length - 1; 
 const LOGO_OFFSET = 2;
@@ -49,6 +49,7 @@ const Quote = () => {
 
 const SkillSet = () => {
     const [bookmark, setBookmark] = useState(0);
+    const [displayModal, setDisplayModal] = useState(false);
 
     useEffect(() => {
         let id = setInterval(() => {
@@ -98,29 +99,32 @@ const SkillSet = () => {
     let bookmarks = find_bookmarks();
 
     return (
-        <div className = "logo-wrapper">
-            {
-                logoList.map((item, index) => {
-                    let className = "next-element";
-                    
-                    if (index === bookmarks.displayedElements[0]) 
-                        className = "first-element";
-                    else if (index === bookmarks.displayedElements[1])
-                        className = "second-element";
-                    else if (index === bookmarks.displayedElements[2])
-                        className = "third-element";
+        <>
+            {displayModal && <Modal logoList = {logoList} setDisplayModal = {setDisplayModal}/>}
+            <div className = "logo-wrapper" onClick = {() => setDisplayModal(true)}>
+                {
+                    logoList.map((item, index) => {
+                        let className = "next-element";
+                        
+                        if (index === bookmarks.displayedElements[0]) 
+                            className = "first-element";
+                        else if (index === bookmarks.displayedElements[1])
+                            className = "second-element";
+                        else if (index === bookmarks.displayedElements[2])
+                            className = "third-element";
 
-                    if (bookmarks.prevStart < bookmarks.prevEnd && (index >= bookmarks.prevStart && index <= bookmarks.prevEnd)) 
-                        className = "prev-element";
-                    else if (bookmarks.prevStart > bookmarks.prevEnd && (index >= bookmarks.prevStart || index <= bookmarks.prevEnd))
-                        className = "prev-element";
+                        if (bookmarks.prevStart < bookmarks.prevEnd && (index >= bookmarks.prevStart && index <= bookmarks.prevEnd)) 
+                            className = "prev-element";
+                        else if (bookmarks.prevStart > bookmarks.prevEnd && (index >= bookmarks.prevStart || index <= bookmarks.prevEnd))
+                            className = "prev-element";
 
-                    return (
-                        <Logo className = {className} src = {item.src} alt = {item.alt} key = {index}/>
-                    );
-                })
-            }
-        </div>
+                        return (
+                            <Logo className = {className} src = {item.src} alt = {item.alt} key = {index}/>
+                        );
+                    })
+                }
+            </div>
+        </>
     );
 }
 
