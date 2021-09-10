@@ -8,32 +8,39 @@ const LOGO_NUM = logoList.length - 1;
 const LOGO_OFFSET = 2;
 
 const LandingPage = () => {
+    const [displayModal, setDisplayModal] = useState(false);
+
     return (
         <div className = "landingPage">
-            <Title/>
-            <Quote/>
-            <SkillSet/>
+            <Title setDisplayModal = {setDisplayModal}/>
+            <Quote setDisplayModal = {setDisplayModal}/>
+            <SkillSet setDisplayModal = {setDisplayModal}/>
             <div className = "video-wrapper">
                 <video className = "background-video" autoPlay loop muted>
                     <source src = {codingVideo} type = "video/mp4" />
                 </video>
             </div>
+            {displayModal && <Modal logoList = {logoList} setDisplayModal = {setDisplayModal}/>}
         </div>
     );
 }
 
-const Title = () => {
+const Title = (props) => {
+    const {setDisplayModal} = props;
+
     return (
-        <header className = "main-title">
+        <header className = "main-title" onClick = {() => setDisplayModal(true)}>
             <h1 className = "name">Stefan</h1>
             <h1 className = "surname">Amariei</h1>
         </header>
     );
 }
 
-const Quote = () => {
+const Quote = (props) => {
+    const {setDisplayModal} = props;
+
     return (
-        <div className = "quote-wrapper">
+        <div className = "quote-wrapper" onClick = {() => setDisplayModal(true)}>
             <div className = "quote-body">
                 <div className = "quote-left">
                     <FaQuoteLeft/>
@@ -47,9 +54,9 @@ const Quote = () => {
     );
 }
 
-const SkillSet = () => {
+const SkillSet = (props) => {
+    const {setDisplayModal} = props;
     const [bookmark, setBookmark] = useState(0);
-    const [displayModal, setDisplayModal] = useState(false);
 
     useEffect(() => {
         let id = setInterval(() => {
@@ -99,32 +106,29 @@ const SkillSet = () => {
     let bookmarks = find_bookmarks();
 
     return (
-        <>
-            {displayModal && <Modal logoList = {logoList} setDisplayModal = {setDisplayModal}/>}
-            <div className = "logo-wrapper" onClick = {() => setDisplayModal(true)}>
-                {
-                    logoList.map((item, index) => {
-                        let className = "next-element";
-                        
-                        if (index === bookmarks.displayedElements[0]) 
-                            className = "first-element";
-                        else if (index === bookmarks.displayedElements[1])
-                            className = "second-element";
-                        else if (index === bookmarks.displayedElements[2])
-                            className = "third-element";
+        <div className = "logo-wrapper" onClick = {() => setDisplayModal(true)}>
+            {
+                logoList.map((item, index) => {
+                    let className = "next-element";
+                    
+                    if (index === bookmarks.displayedElements[0]) 
+                        className = "first-element";
+                    else if (index === bookmarks.displayedElements[1])
+                        className = "second-element";
+                    else if (index === bookmarks.displayedElements[2])
+                        className = "third-element";
 
-                        if (bookmarks.prevStart < bookmarks.prevEnd && (index >= bookmarks.prevStart && index <= bookmarks.prevEnd)) 
-                            className = "prev-element";
-                        else if (bookmarks.prevStart > bookmarks.prevEnd && (index >= bookmarks.prevStart || index <= bookmarks.prevEnd))
-                            className = "prev-element";
+                    if (bookmarks.prevStart < bookmarks.prevEnd && (index >= bookmarks.prevStart && index <= bookmarks.prevEnd)) 
+                        className = "prev-element";
+                    else if (bookmarks.prevStart > bookmarks.prevEnd && (index >= bookmarks.prevStart || index <= bookmarks.prevEnd))
+                        className = "prev-element";
 
-                        return (
-                            <Logo className = {className} src = {item.src} alt = {item.alt} key = {index}/>
-                        );
-                    })
-                }
-            </div>
-        </>
+                    return (
+                        <Logo className = {className} src = {item.src} alt = {item.alt} key = {index}/>
+                    );
+                })
+            }
+        </div>
     );
 }
 

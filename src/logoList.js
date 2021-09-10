@@ -12,61 +12,61 @@ import stackoverflow from './images/stackoverflow.svg'
 export const logoList = [
     {
         name: "UML",
-        color: "#e6005c",
+        color: "rgba(230, 0, 92, 0.3)",
         src: uml,
         alt: "UML Logo"
     },
     {
         name: "JAVA",
-        color: "#e60000",
+        color: "rgba(230, 0, 0, 0.3)",
         src: java,
         alt: "Java Logo"
     },
     {
         name: "MY-SQL",
-        color: "#ff8533",
+        color: "rgba(255, 133, 51, 0.3)",
         src: mysql,
         alt: "MySql Logo"
     },
     {
         name: "HTML",
-        color: "#ff6600",
+        color: "rgba(255, 102, 0, 0.3)",
         src: html,
         alt: "HTML Logo"
     },
     {
         name: "CSS",
-        color: "#0066ff",
+        color: "rgba(0, 102, 255, 0.3)",
         src: css,
         alt: "CSS Logo"
     },
     {
         name: "JAVASCRIPT",
-        color: "#ffff00",
+        color: "rgba(255, 255, 0, 0.3)",
         src: javascript,
         alt: "JavaScript Logo"
     },
     {
         name: "C",
-        color: "#ccccff",
+        color: "rgba(204, 204, 255, 0.3)",
         src: c,
         alt: "C Logo"
     },
     {
         name: "REACT",
-        color: "#00ace6",
+        color: "rgba(0, 172, 230, 0.3)",
         src: react,
         alt: "React Logo"
     },
     {
         name: "PYTHON",
-        color: "#00cc00",
+        color: "rgba(0, 204, 0, 0.3)",
         src: python,
         alt: "Python Logo"
     },
     {
         name: "STACKOVERFLOW",
-        color: "#e60000",
+        color: "rgba(230, 0, 0, 0.3)",
         src: stackoverflow,
         alt: "Stackoverflow Logo"
     }
