@@ -1,5 +1,7 @@
 import React, { useState } from "react"; 
-import { projects } from "./projects";
+import { projects, defaultTagColor, activeTagColor } from "./projects";
+import { SkillTag } from "./modal";
+import VideoModal from "./videoModal";
 
 const tagList = () => {
     return projects.reduce((list, item) => {
@@ -8,6 +10,21 @@ const tagList = () => {
             if(!list.includes(element))
                 list.push(element);
         }
+        return list;
+    }, []);
+}
+
+const filterProjects = (activeTags) => {
+    return projects.reduce((list, item) => {
+        let filter = true;
+        let i = 0;
+        while (filter && i < activeTags.length) {
+            if (!item.projectTags.includes(activeTags[i]))
+                filter = false;
+            i++;
+        }
+        if (filter)
+            list.push(item);
         return list;
     }, []);
 }
@@ -85,9 +102,74 @@ const ProjectsMenu = (prop) => {
 
 const ProjectsBody = (prop) => {
     const {activeTags} = prop;
+    let filteredProjects;
+    let empty = false;
+
+    if (activeTags[0] === "all")
+        filteredProjects = projects;
+    else {
+        filteredProjects = filterProjects(activeTags);
+        if (filteredProjects.length === 0)
+            empty = true;
+    }
+
+    let projectsJSX = filteredProjects.map((item, index) => {
+        const colorTags = item.projectTags.map((tag) => activeTags.includes(tag) ? activeTagColor : defaultTagColor);
+
+        return <ProjectCard key = {index} projectName = {item.projectName} projectDescription = {item.projectDescription}
+        projectTags = {item.projectTags} links = {item.links} colorTags = {colorTags}/>
+    });
 
     return (
-        <main></main>
+        <main>
+            {empty ? <EmptyProjectsList /> : projectsJSX}
+        </main>
+    );
+}
+
+const ProjectCard = (prop) => {
+    const {projectName, projectDescription, projectTags, links, colorTags} = prop;
+    const [displayVideo, setDisplayVideo] = useState({display: false, videoUrl: ""});
+
+    const linkAction = (e, linkUrl, linkType, setDisplayVideo) => {
+        e.preventDefault();
+        if (linkType === "video") 
+            setDisplayVideo({display: true, videoUrl: linkUrl});
+        else 
+            window.open(linkUrl, "_blank");
+    }
+
+    return (
+        <>
+            <div>
+                <section>
+                    <h4>{projectName}</h4>
+                </section>
+                <section>
+                    <p>{projectDescription}</p>
+                    <div>
+                        {projectTags.map((tag, index) => <SkillTag key = {index} name = {tag} color = {colorTags[index]}/>)}
+                    </div>
+                </section>
+                <section>
+                    {links.map((item, index) => <LinkCard key = {index} linkUrl = {item.linkUrl} linkType = {item.linkType}
+                    linkText = {item.linkText} linkAction = {linkAction} setDisplayVideo = {setDisplayVideo}/>)}
+                </section>
+            </div>
+            {displayVideo.display && <VideoModal videoUrl = {displayVideo.videoUrl} setDisplayVideo = {setDisplayVideo}/>}
+        </>
+    );
+}
+
+const LinkCard = (prop) => {
+    const {linkUrl, linkType, linkText, linkAction, setDisplayVideo} = prop;
+
+    return <a href = {linkUrl} onClick = {(e) => linkAction(e, linkUrl, linkType, setDisplayVideo)}>{linkText}</a>
+}
+
+const EmptyProjectsList = () => {
+    return (
+        <h3>Sorry, no project meets your search criteria</h3>
     );
 }
 

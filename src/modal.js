@@ -32,7 +32,7 @@ const Modal = (props) => {
     );
 }
 
-const SkillTag = (props) => {
+export const SkillTag = (props) => {
     const {name, color} = props;
 
     return (
