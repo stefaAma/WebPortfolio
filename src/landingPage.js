@@ -11,7 +11,7 @@ const LandingPage = () => {
     const [displayModal, setDisplayModal] = useState(false);
 
     return (
-        <div className = "landingPage">
+        <div className = "landing-page">
             <Title setDisplayModal = {setDisplayModal}/>
             <Quote setDisplayModal = {setDisplayModal}/>
             <SkillSet setDisplayModal = {setDisplayModal}/>

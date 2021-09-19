@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { projects, defaultTagColor, activeTagColor } from "./projects";
 import { SkillTag } from "./modal";
 import VideoModal from "./videoModal";
+import contactMeObj from "./contactMe";
 
 const tagList = () => {
     return projects.reduce((list, item) => {
@@ -33,7 +34,7 @@ const ProjectsPage = () => {
     const [activeTags, setActiveTags] = useState(["all"]);
 
     return (
-        <div>
+        <div className = "projects-page">
             <ProjectsMenu activeTags = {activeTags} setActiveTags = {setActiveTags} />
             <ProjectsBody activeTags = {activeTags} />
             <ContactMe />
@@ -78,19 +79,21 @@ const ProjectsMenu = (prop) => {
     }
 
     return (
-        <header>
-            <h3>VIEW PROJECTS</h3>
-            <ul>
-                <li>
-                    <label htmlFor = "all-tag">all</label>
-                    <input type = "checkbox" id = "all-tag" checked = {checkedState[0]} onChange = {() => updatePageState(0)}/>
+        <header className = "projects-menu">
+            <div className = "title-menu-wrapper">
+                <h3 className = "title-menu">VIEW PROJECTS</h3>
+            </div>
+            <ul className = "checkbox-wrapper">
+                <li className = "menu-item">
+                    <label className = "label-item" htmlFor = "all-tag">all</label>
+                    <input className = "checkbox-item" type = "checkbox" id = "all-tag" checked = {checkedState[0]} onChange = {() => updatePageState(0)}/>
                 </li>
                 {
                     tags.map((tagName, index) => {
                         return (
-                            <li key = {index}>
-                                <label htmlFor = {`${tagName}-tag`}>{tagName}</label>
-                                <input type = "checkbox" id = {`${tagName}-tag`} checked = {checkedState[index + 1]} onChange = {() => updatePageState(index + 1)}/>
+                            <li key = {index} className = "menu-item">
+                                <label htmlFor = {`${tagName}-tag`} className = "label-item">{tagName}</label>
+                                <input type = "checkbox" id = {`${tagName}-tag`} checked = {checkedState[index + 1]} onChange = {() => updatePageState(index + 1)} className = "checkbox-item"/>
                             </li>
                         );
                     })
@@ -175,7 +178,29 @@ const EmptyProjectsList = () => {
 
 const ContactMe = () => {
     return (
-        <footer></footer>
+        <footer>
+            <div>
+                <div>
+                    <h3>About Me</h3>
+                    <p>{contactMeObj.getAboutMe}</p>
+                </div>
+                <div>
+                    <h3>Contact Me</h3>
+                    <ul>
+                        {contactMeObj.getContactMe}
+                    </ul>
+                </div>
+                <div>
+                    <h3>Useful Links</h3>
+                    <ul>
+                        {contactMeObj.getUsefulLinks}
+                    </ul>
+                </div>
+            </div>
+            <div>
+                {contactMeObj.getCopyright}
+            </div>
+        </footer>
     );
 }
 
