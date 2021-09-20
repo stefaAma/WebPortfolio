@@ -1,4 +1,6 @@
-import React, { useState } from "react"; 
+import * as React from 'react'
+import { useState } from "react";
+import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
 import { projects, defaultTagColor, activeTagColor } from "./projects";
 import { SkillTag } from "./modal";
 import VideoModal from "./videoModal";
@@ -85,15 +87,17 @@ const ProjectsMenu = (prop) => {
             </div>
             <ul className = "checkbox-wrapper">
                 <li className = "menu-item">
-                    <label className = "label-item" htmlFor = "all-tag">all</label>
-                    <input className = "checkbox-item" type = "checkbox" id = "all-tag" checked = {checkedState[0]} onChange = {() => updatePageState(0)}/>
+                    <FormGroup >
+                        <FormControlLabel label = "all" control = {<Checkbox checked = {checkedState[0]} onChange = {() => updatePageState(0)}/>}/>
+                    </FormGroup>
                 </li>
                 {
                     tags.map((tagName, index) => {
                         return (
                             <li key = {index} className = "menu-item">
-                                <label htmlFor = {`${tagName}-tag`} className = "label-item">{tagName}</label>
-                                <input type = "checkbox" id = {`${tagName}-tag`} checked = {checkedState[index + 1]} onChange = {() => updatePageState(index + 1)} className = "checkbox-item"/>
+                                <FormGroup>
+                                    <FormControlLabel label = {tagName} control = {<Checkbox checked = {checkedState[index + 1]} onChange = {() => updatePageState(index + 1)} />} />
+                                </FormGroup>
                             </li>
                         );
                     })
@@ -124,7 +128,7 @@ const ProjectsBody = (prop) => {
     });
 
     return (
-        <main>
+        <main className = "projects-body">
             {empty ? <EmptyProjectsList /> : projectsJSX}
         </main>
     );
@@ -144,17 +148,17 @@ const ProjectCard = (prop) => {
 
     return (
         <>
-            <div>
-                <section>
-                    <h4>{projectName}</h4>
+            <div className = "project-card">
+                <section className = "project-wrapper-title">
+                    <h4 className = "project-title">{projectName}</h4>
                 </section>
-                <section>
-                    <p>{projectDescription}</p>
-                    <div>
+                <section className = "project-description">
+                    <p className = "project-text">{projectDescription}</p>
+                    <div className = "skill-tag-wrapper">
                         {projectTags.map((tag, index) => <SkillTag key = {index} name = {tag} color = {colorTags[index]}/>)}
                     </div>
                 </section>
-                <section>
+                <section className = "projects-links">
                     {links.map((item, index) => <LinkCard key = {index} linkUrl = {item.linkUrl} linkType = {item.linkType}
                     linkText = {item.linkText} linkAction = {linkAction} setDisplayVideo = {setDisplayVideo}/>)}
                 </section>
@@ -167,12 +171,12 @@ const ProjectCard = (prop) => {
 const LinkCard = (prop) => {
     const {linkUrl, linkType, linkText, linkAction, setDisplayVideo} = prop;
 
-    return <a href = {linkUrl} onClick = {(e) => linkAction(e, linkUrl, linkType, setDisplayVideo)}>{linkText}</a>
+    return <a className = "projectLink" href = {linkUrl} onClick = {(e) => linkAction(e, linkUrl, linkType, setDisplayVideo)}>{linkText}</a>
 }
 
 const EmptyProjectsList = () => {
     return (
-        <h3>Sorry, no project meets your search criteria</h3>
+        <h3 className = "empty-projects-alert">Sorry, no project meets your search criteria</h3>
     );
 }
 
