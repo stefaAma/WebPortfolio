@@ -154,10 +154,10 @@ const ProjectCard = (prop) => {
                 </section>
                 <section className = "project-description">
                     <p className = "project-text">{projectDescription}</p>
-                    <div className = "skill-tag-wrapper">
-                        {projectTags.map((tag, index) => <SkillTag key = {index} name = {tag} color = {colorTags[index]}/>)}
-                    </div>
                 </section>
+                <div className = "skill-tag-wrapper">
+                        {projectTags.map((tag, index) => <SkillTag key = {index} name = {tag} color = {colorTags[index]}/>)}
+                </div>
                 <section className = "projects-links">
                     {links.map((item, index) => <LinkCard key = {index} linkUrl = {item.linkUrl} linkType = {item.linkType}
                     linkText = {item.linkText} linkAction = {linkAction} setDisplayVideo = {setDisplayVideo}/>)}
@@ -176,32 +176,34 @@ const LinkCard = (prop) => {
 
 const EmptyProjectsList = () => {
     return (
-        <h3 className = "empty-projects-alert">Sorry, no project meets your search criteria</h3>
+        <div className = "empty-projects-alert">
+            <h3 className = "empty-projects-text">Sorry, no project meets your search criteria</h3>
+        </div>
     );
 }
 
 const ContactMe = () => {
     return (
-        <footer>
-            <div>
-                <div>
+        <footer className = "contact-me-footer">
+            <div className = "contact-me-info">
+                <div className = "about-me">
                     <h3>About Me</h3>
                     <p>{contactMeObj.getAboutMe}</p>
                 </div>
-                <div>
+                <div className = "contact-me">
                     <h3>Contact Me</h3>
                     <ul>
                         {contactMeObj.getContactMe}
                     </ul>
                 </div>
-                <div>
+                <div className = "useful-links">
                     <h3>Useful Links</h3>
                     <ul>
                         {contactMeObj.getUsefulLinks}
                     </ul>
                 </div>
             </div>
-            <div>
+            <div className = "contact-me-copyright">
                 {contactMeObj.getCopyright}
             </div>
         </footer>

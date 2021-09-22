@@ -18,9 +18,9 @@ class ContactMe {
     get getContactMe() {
         return this.contactMe.map((item, index) => {
             return (
-                <li key = {index}>
-                    <h6>{item.text}</h6>
-                    <div>
+                <li className = "contact-me-item" key = {index}>
+                    <h6 className = "contact-me-text">{item.text}</h6>
+                    <div className = "contact-me-icon">
                         {item.icon}
                     </div>
                 </li>
@@ -31,9 +31,9 @@ class ContactMe {
     get getUsefulLinks() {
         return this.usefulLinks.map((item, index) => {
             return (
-                <li key = {index}>
-                    <a href = {item.linkUrl} rel = "noreferrer" target = "_blank">{item.text}</a>
-                    <div>
+                <li className = "useful-links-item" key = {index}>
+                    <a className = "useful-links-link" href = {item.linkUrl} rel = "noreferrer" target = "_blank">{item.text}</a>
+                    <div className = "useful-links-icon">
                         {item.icon}
                     </div>
                 </li>
@@ -43,11 +43,11 @@ class ContactMe {
 
     get getCopyright() {
         return (
-            <div>
-                <div>
+            <div className = "copyright-text-wrapper">
+                <div className = "copyright-icon">
                     <CgCopyright />
                 </div>
-                <h6>Stefan Amariei</h6>
+                <h6 className = "copyright-text">Stefan Amariei</h6>
             </div>
         );
     }
