@@ -272,15 +272,58 @@ code {
 
 
 .projects-page {
+  position: relative;
   height: 180vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   background-color: #2c387e;
   color: whitesmoke;
+  overflow: hidden;
+}
+
+.background-circle {
+  border-radius: 50%;
+  position: absolute;
+}
+
+#circle-one {
+  height: 80vh;
+  width: 80vh;
+  background-color: rgba(163, 22, 33, 0.65);
+  top: 0;
+  left: 0;
+  transform: translate(-60%, 0);
+}
+
+#circle-two {
+  height: 80vh;
+  width: 80vh;
+  background-color: rgba(226, 132, 19, 0.65);
+  bottom: 0;
+  right: 0;
+  transform: translate(60%, 0);
+}
+
+#circle-three {
+  height: 60vh;
+  width: 60vh;
+  background-color: rgba(1, 151, 246, 0.65);
+  bottom: 15%;
+  left: 15%;
+}
+
+#circle-four {
+  height: 60vh;
+  width: 60vh;
+  background-color: rgba(114, 8, 135, 0.65);
+  top: 15%;
+  right: 15%;
 }
 
 .projects-menu {
+  position: relative;
+  z-index: 1;
   height: 30vh;
   display: flex;
   width: 100%;
@@ -304,6 +347,7 @@ code {
   transform: translate(-50%, -50%);
   font-size: 5vh;
   margin: 0;
+  cursor: default;
 }
 
 .checkbox-wrapper {
@@ -342,6 +386,7 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 
 .empty-projects-text {
@@ -350,6 +395,8 @@ code {
 }
 
 .project-card {
+  position: relative;
+  z-index: 1;
   height: 420px;
   width: 280px;
   display: flex;
@@ -369,6 +416,7 @@ code {
   position: relative;
   height: 30px;
   width: 100%;
+  cursor: default;
 }
 
 .project-title {
@@ -383,6 +431,7 @@ code {
 .project-description {
   height: 70%;
   overflow: auto;
+  cursor: default;
 }
 
 .project-text {
@@ -424,31 +473,67 @@ code {
 }
 
 .contact-me-footer {
-  height: 10vh;
+  position: relative;
+  z-index: 1;
+  height: 40vh;
   width: 100%;
   display: flex;
   flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.footer-title {
+  height: 7.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
 }
 
 .contact-me-info {
-  height: 7vh;
+  height: 27vh;
   width: 100%;
   display: flex;
   align-items: center;
 }
 
 .about-me {
-  height: 7vh;
   width: 50%;
 }
 
 .contact-me, .useful-links {
-  height: 7vh;
   width: 25%;
 }
 
+.about-me, .contact-me, .useful-links {
+  height: 26vh;
+}
+
+.footer-content-items, .footer-content-text {
+  height: 20vh;
+  padding: 0;
+}
+
+.footer-content-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.footer-content-text {
+  overflow: auto;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  cursor: default;
+}
+
 .contact-me-copyright {
-  height: 3vh;
+  height: 7.5vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -456,9 +541,49 @@ code {
 }
 
 .contact-me-item, .useful-links-item {
+  height: 40px;
   display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .copyright-text-wrapper {
+  height: 7.5vh;
   display: flex;
+  align-items: center;
+  cursor: default;
+}
+
+.copyright-icon {
+  display: flex;
+  align-items: center;
+  font-size: 1.1em;
+}
+
+.copyright-text {
+  font-size: 0.85em;
+}
+
+.useful-links-item a {
+  outline: none;
+  text-decoration: none;
+  width: 70%;
+  line-height: 1.8;
+  text-align: center;
+  color: whitesmoke;
+  border-radius: 5px;
+}
+
+.useful-links-item a:link, .useful-links-item a:visited, .useful-links-item a:focus {
+  background-color: rgb(46, 6, 224, 0.5);
+}
+
+.useful-links-item a:hover {
+  background-color: rgba(212, 18, 18, 0.5);
+  text-decoration: underline;
+}
+
+.useful-links-item a:active {
+  background-color: rgba(212, 18, 18, 0.75); 
+  text-decoration: underline;
 }

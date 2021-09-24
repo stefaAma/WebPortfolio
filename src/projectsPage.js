@@ -40,7 +40,19 @@ const ProjectsPage = () => {
             <ProjectsMenu activeTags = {activeTags} setActiveTags = {setActiveTags} />
             <ProjectsBody activeTags = {activeTags} />
             <ContactMe />
+            <BackgroundCircles />
         </div>
+    );
+}
+
+const BackgroundCircles = () => {
+    return (
+        <>
+            <div id = "circle-one" className = "background-circle"></div>
+            <div id = "circle-two" className = "background-circle"></div>
+            <div id = "circle-three" className = "background-circle"></div>
+            <div id = "circle-four" className = "background-circle"></div>
+        </>
     );
 }
 
@@ -187,18 +199,26 @@ const ContactMe = () => {
         <footer className = "contact-me-footer">
             <div className = "contact-me-info">
                 <div className = "about-me">
-                    <h3>About Me</h3>
-                    <p>{contactMeObj.getAboutMe}</p>
+                    <div className = "footer-title">
+                        <h3>About Me</h3>
+                    </div>
+                    <div className = "footer-content-text">
+                        <p>{contactMeObj.getAboutMe}</p>
+                    </div>
                 </div>
                 <div className = "contact-me">
-                    <h3>Contact Me</h3>
-                    <ul>
+                    <div className = "footer-title">
+                        <h3>Contact Me</h3>
+                    </div>
+                    <ul className = "footer-content-items">
                         {contactMeObj.getContactMe}
                     </ul>
                 </div>
                 <div className = "useful-links">
-                    <h3>Useful Links</h3>
-                    <ul>
+                    <div className = "footer-title">
+                        <h3>Useful Links</h3>
+                    </div>
+                    <ul className = "footer-content-items">
                         {contactMeObj.getUsefulLinks}
                     </ul>
                 </div>

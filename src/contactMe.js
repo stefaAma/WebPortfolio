@@ -32,10 +32,7 @@ class ContactMe {
         return this.usefulLinks.map((item, index) => {
             return (
                 <li className = "useful-links-item" key = {index}>
-                    <a className = "useful-links-link" href = {item.linkUrl} rel = "noreferrer" target = "_blank">{item.text}</a>
-                    <div className = "useful-links-icon">
-                        {item.icon}
-                    </div>
+                    <a href = {item.linkUrl} rel = "noreferrer" target = "_blank">{item.text} {item.icon}</a>
                 </li>
             );
         })
