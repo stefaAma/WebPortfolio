@@ -5,6 +5,7 @@ import { projects, defaultTagColor, activeTagColor } from "./projects";
 import { SkillTag } from "./modal";
 import VideoModal from "./videoModal";
 import contactMeObj from "./contactMe";
+import FooterPopup from './footerPopup';
 
 const tagList = () => {
     return projects.reduce((list, item) => {
@@ -100,7 +101,7 @@ const ProjectsMenu = (prop) => {
             <ul className = "checkbox-wrapper">
                 <li className = "menu-item">
                     <FormGroup >
-                        <FormControlLabel label = "all" control = {<Checkbox checked = {checkedState[0]} onChange = {() => updatePageState(0)}/>}/>
+                        <FormControlLabel label = "all" control = {<Checkbox checked = {checkedState[0]} onChange = {() => updatePageState(0)} sx={{ color: "rgba(133, 133, 255, 0.55)", '&.Mui-checked': { color: "rgba(133, 133, 255, 0.55)", }, }}/>} />
                     </FormGroup>
                 </li>
                 {
@@ -108,7 +109,7 @@ const ProjectsMenu = (prop) => {
                         return (
                             <li key = {index} className = "menu-item">
                                 <FormGroup>
-                                    <FormControlLabel label = {tagName} control = {<Checkbox checked = {checkedState[index + 1]} onChange = {() => updatePageState(index + 1)} />} />
+                                    <FormControlLabel label = {tagName} control = {<Checkbox checked = {checkedState[index + 1]} onChange = {() => updatePageState(index + 1)} sx={{ color: "rgba(163, 22, 33, 0.65)", '&.Mui-checked': { color: "rgba(163, 22, 33, 0.65)", }, }} />} />
                                 </FormGroup>
                             </li>
                         );
@@ -198,35 +199,56 @@ const ContactMe = () => {
     return (
         <footer className = "contact-me-footer">
             <div className = "contact-me-info">
-                <div className = "about-me">
-                    <div className = "footer-title">
-                        <h3>About Me</h3>
-                    </div>
-                    <div className = "footer-content-text">
-                        <p>{contactMeObj.getAboutMe}</p>
-                    </div>
-                </div>
-                <div className = "contact-me">
-                    <div className = "footer-title">
-                        <h3>Contact Me</h3>
-                    </div>
-                    <ul className = "footer-content-items">
-                        {contactMeObj.getContactMe}
-                    </ul>
-                </div>
-                <div className = "useful-links">
-                    <div className = "footer-title">
-                        <h3>Useful Links</h3>
-                    </div>
-                    <ul className = "footer-content-items">
-                        {contactMeObj.getUsefulLinks}
-                    </ul>
-                </div>
+                <AboutMeSection />
+                <ContactMeSection />
+                <UsefulLinkSection />
             </div>
             <div className = "contact-me-copyright">
                 {contactMeObj.getCopyright}
             </div>
         </footer>
+    );
+}
+
+const AboutMeSection = () => {
+    return (
+        <div className = "about-me">
+            <div className = "footer-title">
+                <h3>About Me</h3>
+            </div>
+            <div className = "footer-content-text">
+                <p>{contactMeObj.getAboutMe}</p>
+            </div>
+        </div>
+    );
+}
+
+const ContactMeSection = () => {
+    const [displayPopup, setPopupDisplay] = useState({display: false, text: ""});
+
+    return (
+        <div className = "contact-me">
+            <div className = "footer-title">
+                <h3>Contact Me</h3>
+            </div>
+            <ul className = "footer-content-items">
+                {contactMeObj.getContactMe(setPopupDisplay)}
+            </ul>
+            {displayPopup.display && <FooterPopup popupText = {displayPopup.text} />}
+        </div>
+    );
+}
+
+const UsefulLinkSection = () => {
+    return (
+        <div className = "useful-links">
+            <div className = "footer-title">
+                <h3>Useful Links</h3>
+            </div>
+            <ul className = "footer-content-items">
+                {contactMeObj.getUsefulLinks}
+            </ul>
+        </div>
     );
 }
 

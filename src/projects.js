@@ -38,5 +38,5 @@ export const projects = [
     },
 ]
 
-export const defaultTagColor = "rgba(51, 204, 255, 0.3)";
-export const activeTagColor = "rgba(255, 0, 0, 0.35)";
+export const defaultTagColor = "rgba(133, 133, 255, 0.35)";
+export const activeTagColor = "rgba(212, 18, 18, 0.45)";
