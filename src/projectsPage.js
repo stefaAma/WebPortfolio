@@ -175,8 +175,8 @@ const ProjectCard = (prop) => {
                     {links.map((item, index) => <LinkCard key = {index} linkUrl = {item.linkUrl} linkType = {item.linkType}
                     linkText = {item.linkText} linkAction = {linkAction} setDisplayVideo = {setDisplayVideo}/>)}
                 </section>
+                {displayVideo.display && <VideoModal videoUrl = {displayVideo.videoUrl} setDisplayVideo = {setDisplayVideo}/>}
             </div>
-            {displayVideo.display && <VideoModal videoUrl = {displayVideo.videoUrl} setDisplayVideo = {setDisplayVideo}/>}
         </>
     );
 }

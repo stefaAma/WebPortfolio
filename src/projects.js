@@ -1,10 +1,12 @@
+import codingVideo from './video/coding_video.mp4';
+
 export const projects = [
     {
         projectName: "Project-1",
         projectDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non accumsan odio. Duis a odio felis. Aliquam interdum enim felis, eu dignissim neque hendrerit non. In ac consectetur metus. Etiam maximus viverra magna non ornare. Proin a quam id lorem sodales tempor.",
         projectTags: ["tag1", "tag2"],
         links: [
-            {linkUrl: "#", linkType: "", linkText: "link1"},
+            {linkUrl: codingVideo, linkType: "video", linkText: "link1"},
             {linkUrl: "#", linkType: "", linkText: "link2"}
         ]
     },

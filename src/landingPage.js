@@ -64,9 +64,6 @@ const SkillSet = (props) => {
                 let newBookmark = prevBookmark + LOGO_OFFSET + 1;
                 if (newBookmark > LOGO_NUM)
                     newBookmark = newBookmark - (LOGO_NUM + 1);
-
-                //console.log(newBookmark);
-
                 return newBookmark;
             });
         }, 4000);

@@ -22,8 +22,7 @@ class ContactMe {
             footerPopupId = -1;
             setPopupDisplay({display: false, text: ""});
         }
-        /* TODO: Copy to the clipboard! 
-            footerPopupId needs to be updated before re-rendering the component*/ 
+        
         return this.contactMe.map((item, index) => {
             const displayPopup = () => {
                 clearTimeout(footerPopupId);

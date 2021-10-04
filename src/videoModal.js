@@ -5,14 +5,14 @@ const VideoModal = (props) => {
 
     return (
         ReactDom.createPortal(
-        <>  
-            <div onClick = {() => setDisplayVideo({display: false, videoUrl: ""})}></div>
-            <div>
-                <video>
+        <div className = "video-modal-container">  
+            <div className = "modal-overlay" onClick = {() => setDisplayVideo({display: false, videoUrl: ""})}></div>
+            <div className = "video-modal-wrapper">
+                <video className = "video-modal" muted controls>
                     <source src = {videoUrl} type="video/mp4"></source>
                 </video>
             </div>
-        </>, document.getElementById("modal-wrapper"))
+        </div>, document.getElementById("modal-wrapper"))
     );
 }
 
