@@ -131,7 +131,7 @@ code {
 
 .logo-wrapper, .main-title, .quote-wrapper {
   background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.15), 0 -5px 15px 5px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.15), 0 -5px 15px 5px rgba(0, 0, 0, 0.15); */
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 15px;
@@ -315,7 +315,7 @@ code {
 #circle-three {
   height: 60vh;
   width: 60vh;
-  background-color: rgba(20, 199, 235, 0.35);
+  background-color: rgba(218, 42, 7, 0.65);
   bottom: 15%;
   left: 15%;
 }
@@ -323,7 +323,7 @@ code {
 #circle-four {
   height: 60vh;
   width: 60vh;
-  background-color: rgba(114, 8, 135, 0.65);
+  background-color: rgba(218, 42, 7, 0.65);
   top: 15%;
   right: 15%;
 }
@@ -433,6 +433,8 @@ code {
   transform: translate(-50%, -50%);
   font-size: x-large;
   margin: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .project-description {
@@ -658,4 +660,12 @@ code {
 
 .video-modal {
   width: 100%;
+}
+
+.close-video-modal {
+  position: absolute;
+  top: 1.5%;
+  right: 4%;
+  z-index: 10;
+  color: whitesmoke;
 }

@@ -67,11 +67,11 @@ const aboutMeText = "I'm Stefan Amariei and Software Development is my passion. 
 
 const contactMe = [
     {
-        text: "mail1",
+        text: "as.stefanama@gmail.com",
         icon: <HiOutlineMail />
     },
     {
-        text: "mail2",
+        text: "stefan.amariei@edu.unito.it",
         icon: <IoSchool />
     }
 ]

@@ -1,41 +1,40 @@
-import codingVideo from './video/coding_video.mp4';
+import cateringVideo from './video/Catering.mp4';
+import algoVideo from './video/Algo.mp4'
 
 export const projects = [
     {
-        projectName: "Project-1",
+        projectName: "Catering-App",
         projectDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non accumsan odio. Duis a odio felis. Aliquam interdum enim felis, eu dignissim neque hendrerit non. In ac consectetur metus. Etiam maximus viverra magna non ornare. Proin a quam id lorem sodales tempor.",
-        projectTags: ["tag1", "tag2"],
+        projectTags: ["Java", "JavaFX"],
         links: [
-            {linkUrl: codingVideo, linkType: "video", linkText: "link1"},
-            {linkUrl: "#", linkType: "", linkText: "link2"}
+            {linkUrl: cateringVideo, linkType: "video", linkText: "View Demo Video"},
+            {linkUrl: "https://github.com/stefaAma/CateringApplication", linkType: "link", linkText: "GitHub Repository"}
         ]
     },
     {
-        projectName: "Project-2",
+        projectName: "Weather-App",
         projectDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non accumsan odio. Duis a odio felis. Aliquam interdum enim felis, eu dignissim neque hendrerit non. In ac consectetur metus. Etiam maximus viverra magna non ornare. Proin a quam id lorem sodales tempor. Quisque a ante id diam tincidunt finibus non vel enim. Sed fermentum feugiat dapibus. Donec et diam neque.  Sed fermentum feugiat dapibus. Donec et diam neque.  Sed fermentum feugiat dapibus. Donec et diam neque.",
-        projectTags: ["tag1"],
+        projectTags: ["JavaScript"],
         links: [
-            {linkUrl: "#", linkType: "", linkText: "link1"},
-            {linkUrl: "#", linkType: "", linkText: "link2"}
+            {linkUrl: "#", linkType: "link", linkText: "Visit Page"},
+            {linkUrl: "https://github.com/stefaAma/WeatherApp", linkType: "link", linkText: "GitHub Repository"}
         ]
     },
     {
-        projectName: "Project-3",
+        projectName: "Portfolio",
         projectDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non accumsan odio. Duis a odio felis. Aliquam interdum enim felis, eu dignissim neque hendrerit non. In ac consectetur metus. Etiam maximus viverra magna non ornare. Proin a quam id lorem sodales tempor. Quisque a ante id diam tincidunt finibus non vel enim. Sed fermentum feugiat dapibus. Donec et diam neque.",
-        projectTags: ["tag2"],
+        projectTags: ["JavaScript", "React"],
         links: [
-            {linkUrl: "#", linkType: "", linkText: "link1"},
-            {linkUrl: "#", linkType: "", linkText: "link2"}
+            {linkUrl: "https://github.com/stefaAma/WebPortfolio", linkType: "link", linkText: "GitHub Repository"}
         ]
     },
     {
-        projectName: "Project-4",
+        projectName: "Algorithms",
         projectDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non accumsan odio. Duis a odio felis. Aliquam interdum enim felis, eu dignissim neque hendrerit non. In ac consectetur metus. Etiam maximus viverra magna non ornare. Proin a quam id lorem sodales tempor. Quisque a ante id diam tincidunt finibus non vel enim. Sed fermentum feugiat dapibus. Donec et diam neque.",
-        projectTags: ["tag3"],
+        projectTags: ["Python"],
         links: [
-            {linkUrl: "#", linkType: "", linkText: "link1"},
-            {linkUrl: "#", linkType: "", linkText: "link2"},
-            {linkUrl: "#", linkType: "", linkText: "link3"}
+            {linkUrl: algoVideo, linkType: "video", linkText: "View Demo Video"},
+            {linkUrl: "https://github.com/stefaAma/AlgorithmExercises", linkType: "link", linkText: "GitHub Repository"},
         ]
     },
 ]
