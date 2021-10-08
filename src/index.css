@@ -214,6 +214,7 @@ code {
   padding-right: 5%;
   overflow-y: scroll;
   border-radius: 10px;
+  cursor: default;
 }
 
 .modal-header {
@@ -266,6 +267,34 @@ code {
 
 .modal-subtitle {
   height: 3vh;
+  font-size: 3.5vh;
+}
+
+.hard-skills-container {
+  list-style-type: none;
+  padding-left: 5%;
+}
+
+.hard-skill-item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hard-skill-title {
+  font-size: 2.5vh;
+}
+
+.hard-skill-description {
+  text-align: justify;
+  width: 70%;
+}
+
+.soft-skills-description {
+  width: 100%;
+  padding-left: 5%;
+  text-align: justify;
 }
 
 

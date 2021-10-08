@@ -1,5 +1,5 @@
 import ReactDom from 'react-dom'
-import { LoremIpsum } from 'react-lorem-ipsum'
+import { hardSkills, softSkills } from './hardSkills';
 
 const Modal = (props) => {
     const {logoList, setDisplayModal} = props;
@@ -23,12 +23,24 @@ const Modal = (props) => {
                         }
                     </div>
                     <h4 className = "modal-subtitle">Hard-Skills</h4>
-                    <LoremIpsum></LoremIpsum>
+                    <ul className = "hard-skills-container">
+                        {hardSkills.map((item, index) => <HardSkill key = {index} skillTitle = {item.skillTitle} skillDescription = {item.skillDescription} />)}
+                    </ul>
                     <h4 className = "modal-subtitle">Soft-Skills</h4>
-                    <LoremIpsum></LoremIpsum>
+                    <p className = "soft-skills-description">{softSkills}</p>
                 </div>
             </div>
         </>, document.getElementById("modal-wrapper"))
+    );
+}
+
+const HardSkill = (props) => {
+    const {key, skillTitle, skillDescription} = props;
+    return (
+        <li key = {key} className = "hard-skill-item">
+            <h5 className = "hard-skill-title">{skillTitle}</h5>
+            <p className = "hard-skill-description">{skillDescription}</p>
+        </li>
     );
 }
 
