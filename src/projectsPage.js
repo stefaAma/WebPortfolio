@@ -151,11 +151,21 @@ const ProjectCard = (prop) => {
     const {projectName, projectDescription, projectTags, links, colorTags} = prop;
     const [displayVideo, setDisplayVideo] = useState({display: false, videoUrl: ""});
 
-    const linkAction = (e, linkUrl, linkType, setDisplayVideo) => {
+    const fixVideoModal = (linkUrl) => {
+        document.querySelector("body").style.overflow = "hidden";
+        setDisplayVideo({display: true, videoUrl: linkUrl});
+    }
+
+    const unfixVideoModal = () => {
+        setDisplayVideo({display: false, videoUrl: ""});
+        document.querySelector("body").style.overflow = "visible";
+    }
+
+    const linkAction = (e, linkUrl, linkType) => {
         e.preventDefault();
         if (linkType === "video") 
-            setDisplayVideo({display: true, videoUrl: linkUrl});
-        else 
+            fixVideoModal(linkUrl);
+        else
             window.open(linkUrl, "_blank");
     }
 
@@ -173,18 +183,18 @@ const ProjectCard = (prop) => {
                 </div>
                 <section className = "projects-links">
                     {links.map((item, index) => <LinkCard key = {index} linkUrl = {item.linkUrl} linkType = {item.linkType}
-                    linkText = {item.linkText} linkAction = {linkAction} setDisplayVideo = {setDisplayVideo}/>)}
+                    linkText = {item.linkText} linkAction = {linkAction}/>)}
                 </section>
-                {displayVideo.display && <VideoModal videoUrl = {displayVideo.videoUrl} setDisplayVideo = {setDisplayVideo}/>}
+                {displayVideo.display && <VideoModal videoUrl = {displayVideo.videoUrl} unfixVideoModal = {unfixVideoModal}/>}
             </div>
         </>
     );
 }
 
 const LinkCard = (prop) => {
-    const {linkUrl, linkType, linkText, linkAction, setDisplayVideo} = prop;
+    const {linkUrl, linkType, linkText, linkAction} = prop;
 
-    return <a className = "projectLink" href = {linkUrl} onClick = {(e) => linkAction(e, linkUrl, linkType, setDisplayVideo)}>{linkText}</a>
+    return <a className = "projectLink" href = {linkUrl} onClick = {(e) => linkAction(e, linkUrl, linkType)}>{linkText}</a>
 }
 
 const EmptyProjectsList = () => {

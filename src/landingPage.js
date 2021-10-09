@@ -10,26 +10,36 @@ const LOGO_OFFSET = 2;
 const LandingPage = () => {
     const [displayModal, setDisplayModal] = useState(false);
 
+    const fixModal = () => {
+        document.querySelector("body").style.overflow = "hidden";
+        setDisplayModal(true);
+    }
+    
+    const unfixModal = () => {
+        setDisplayModal(false);
+        document.querySelector("body").style.overflow = "visible";
+    }
+
     return (
         <div className = "landing-page">
-            <Title setDisplayModal = {setDisplayModal}/>
-            <Quote setDisplayModal = {setDisplayModal}/>
-            <SkillSet setDisplayModal = {setDisplayModal}/>
+            <Title fixModal = {fixModal}/>
+            <Quote fixModal = {fixModal}/>
+            <SkillSet fixModal = {fixModal}/>
             <div className = "video-wrapper">
                 <video className = "background-video" autoPlay loop muted>
                     <source src = {codingVideo} type = "video/mp4" />
                 </video>
             </div>
-            {displayModal && <Modal logoList = {logoList} setDisplayModal = {setDisplayModal}/>}
+            {displayModal && <Modal logoList = {logoList} unfixModal = {unfixModal}/>}
         </div>
     );
 }
 
 const Title = (props) => {
-    const {setDisplayModal} = props;
+    const {fixModal} = props;
 
     return (
-        <header className = "main-title" onClick = {() => setDisplayModal(true)}>
+        <header className = "main-title" onClick = {() => fixModal()}>
             <h1 className = "name">Stefan</h1>
             <h1 className = "surname">Amariei</h1>
         </header>
@@ -37,10 +47,10 @@ const Title = (props) => {
 }
 
 const Quote = (props) => {
-    const {setDisplayModal} = props;
+    const {fixModal} = props;
 
     return (
-        <div className = "quote-wrapper" onClick = {() => setDisplayModal(true)}>
+        <div className = "quote-wrapper" onClick = {() => fixModal()}>
             <div className = "quote-body">
                 <div className = "quote-left">
                     <FaQuoteLeft/>
@@ -55,7 +65,7 @@ const Quote = (props) => {
 }
 
 const SkillSet = (props) => {
-    const {setDisplayModal} = props;
+    const {fixModal} = props;
     const [bookmark, setBookmark] = useState(0);
 
     useEffect(() => {
@@ -103,7 +113,7 @@ const SkillSet = (props) => {
     let bookmarks = find_bookmarks();
 
     return (
-        <div className = "logo-wrapper" onClick = {() => setDisplayModal(true)}>
+        <div className = "logo-wrapper" onClick = {() => fixModal()}>
             {
                 logoList.map((item, index) => {
                     let className = "next-element";

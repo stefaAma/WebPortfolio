@@ -467,7 +467,7 @@ code {
 }
 
 .project-description {
-  height: 70%;
+  height: 75%;
   overflow: auto;
   cursor: default;
 }

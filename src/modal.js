@@ -2,16 +2,16 @@ import ReactDom from 'react-dom'
 import { hardSkills, softSkills } from './hardSkills';
 
 const Modal = (props) => {
-    const {logoList, setDisplayModal} = props;
+    const {logoList, unfixModal} = props;
 
     return (
         ReactDom.createPortal(
         <>
-            <div className = "modal-overlay" onClick = {() => setDisplayModal(false)}></div>
+            <div className = "modal-overlay" onClick = {() => unfixModal()}></div>
             <div className = "modal">
                 <header className = "modal-header">
                     <h3 className = "modal-title">Skills</h3>
-                    <span className = "close-modal" onClick = {() => setDisplayModal(false)}>&times;</span>                
+                    <span className = "close-modal" onClick = {() => unfixModal()}>&times;</span>                
                 </header>
                 <hr className = "modal-line"/>
                 <div className = "modal-body">
