@@ -698,3 +698,104 @@ code {
   z-index: 10;
   color: whitesmoke;
 }
+
+
+/* Media Query LandingPage */
+
+
+@media (max-width: 40em) {
+
+  .main-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .name {
+    position: static;
+  }
+
+  .surname {
+    position: static;
+  }
+
+  .quote-body {
+    width: 90%;
+  }
+
+  .quote-text {
+    font-size: 30px;
+  }
+
+  .background-video {
+    height: 100%;
+  }
+
+  .first-element, .second-element, .third-element, .prev-element, .next-element {
+    height: 8vh;
+    top: 40%;
+  }
+
+  .first-element {
+    transform: translateX(-30vw);
+  }
+
+  .second-element {
+    transform: translateX(0);
+  }
+
+  .third-element {
+    transform: translateX(30vw);
+  }
+
+  .modal {
+    width: 85%;
+    height: 90vh;
+  }
+
+  .hard-skill-title {
+    font-size: 2vh;
+  }
+
+  .hard-skill-description {
+    font-size: small;
+  }
+
+  .soft-skills-description {
+    font-size: small;
+  }
+
+}
+
+
+/* Media Query ProjectPage*/
+
+
+@media (max-width: 40em) {
+  .projects-menu {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  .title-menu-wrapper {
+    width: 100%;
+    text-align: center;
+  }
+
+  .checkbox-wrapper {
+    width: 100%;
+    justify-content: flex-start;
+    overflow: scroll;
+    margin-bottom: 0;
+  }
+
+  .title-menu {
+    width: 100%;
+  }
+
+  .menu-item {
+    margin-right: 1.5em;
+  }
+}

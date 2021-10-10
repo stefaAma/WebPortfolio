@@ -36,7 +36,7 @@ export const hardSkills = [
         skillDescription: "This programming language was only mentioned in one of the elective courses provided by my university. However, the idea of learning a language different from the ones I already knew pushed me to deepen it, especially in the context of the implementation of algorithms, without neglecting to learn more about the specific characteristics that this versatile general-purpose language offers."
     },
     {
-        skillTitle: "STACKOVERFLOW",
+        skillTitle: "STACK-OVERFLOW",
         skillDescription: "We must know how to search and understand what we find."
     }
 ]
