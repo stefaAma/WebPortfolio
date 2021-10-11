@@ -582,6 +582,21 @@ code {
   height: 40px;
   display: flex;
   align-items: center;
+}
+
+.contact-me-item {
+  justify-content: space-between;
+}
+
+.contact-me-text {
+  margin-left: 15px;
+}
+
+.contact-me-icon {
+  margin-right: 15px;
+}
+
+.useful-links-item {
   justify-content: space-evenly;
 }
 
@@ -773,6 +788,11 @@ code {
 
 
 @media (max-width: 40em) {
+
+  .projects-page {
+    height: 280vh;
+  }
+
   .projects-menu {
     flex-direction: column;
     align-items: center;
@@ -798,4 +818,100 @@ code {
   .menu-item {
     margin-right: 1.5em;
   }
+
+  #circle-one {
+    height: 60vh;
+    width: 60vh;
+  }
+
+  #circle-two {
+    height: 60vh;
+    width: 60vh;
+  }
+
+  #circle-three {
+    height: 20vh;
+    width: 20vh;
+    bottom: 35%;
+  }
+
+  #circle-four {
+    height: 20vh;
+    width: 20vh;
+    top: 35%;
+  }
+
+  .contact-me-footer {
+    flex-direction: column;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .contact-me-info {
+    height: initial;
+    flex-direction: column;
+  }
+
+  .about-me {
+    height: initial;
+    width: auto;
+  }
+
+  .contact-me {
+    height: 24vh;
+    width: 100%;
+  }
+
+  .contact-me-item {
+    justify-content: space-between;
+  }
+  
+  .contact-me-text {
+    margin-left: 15px;
+    font-size: 2.5vh;
+  }
+
+  .contact-me-icon {
+    margin-right: 15px;
+  }
+
+  .useful-links {
+    height: auto;
+  }
+
+  .footer-content-text {
+    height: initial;
+    width: 100%;
+    text-align: justify;
+    padding-left: 0;
+  }
+
+  .footer-content-text p {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 0;
+  }
+
+  .footer-content-items {
+    margin-bottom: 0;
+  }
+
+  .footer-title h3 {
+    margin-bottom: 0;
+  }
+
+  .useful-links {
+    width: 100%;
+    height: 20vh;
+  }
+
+  .footer-popup-wrapper {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .projects-body {
+    height: 140vh;
+  }
+
 }
