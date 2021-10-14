@@ -16,7 +16,7 @@ export const projects = [
         projectDescription: "I wrote this application to get familiar with the basics of front-end development. The API I decided to use for creating my weather application is the one provided by OpenWeatherMap.",
         projectTags: ["JavaScript"],
         links: [
-            {linkUrl: "#", linkType: "link", linkText: "Visit Page"},
+            {linkUrl: "https://stefan-weather.netlify.app/", linkType: "link", linkText: "Visit Page"},
             {linkUrl: "https://github.com/stefaAma/WeatherApp", linkType: "link", linkText: "GitHub Repository"}
         ]
     },

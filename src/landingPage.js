@@ -76,7 +76,7 @@ const SkillSet = (props) => {
                     newBookmark = newBookmark - (LOGO_NUM + 1);
                 return newBookmark;
             });
-        }, 4000);
+        }, 5000);
 
         return () => clearInterval(id);
     });
