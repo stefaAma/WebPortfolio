@@ -181,7 +181,7 @@ code {
   width: 100%;
   overflow: hidden;
 
-  background-color: rgba(46, 6, 224, 0.2);
+  background-color: rgba(44, 56, 126,0.25);
 
 }
 
@@ -590,6 +590,7 @@ code {
 
 .contact-me-text {
   margin-left: 15px;
+  font-size: 2vh;
 }
 
 .contact-me-icon {
@@ -911,7 +912,16 @@ code {
   }
 
   .projects-body {
-    height: 140vh;
+    height: 150vh;
+  }
+
+  .modal-overlay {
+    backdrop-filter: none;
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  .modal {
+    backdrop-filter: blur(10px);
   }
 
 }
